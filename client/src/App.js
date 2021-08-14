@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+// import "./styles/components/App.scss";
+// import AppRouter from "./routers/AppRouter";
+// import { Provider } from "react-redux";
+// import store from "./Store/configureStore";
+// import { QueryClient, QueryClientProvider } from "react-query";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// const mystore = store();
+// const queryClient = new QueryClient({
+//   defaultOptions: {
+//     queries: {
+//       retry: process.env.NODE_ENV === "production",
+//       refetchOnWindowFocus: process.env.NODE_ENV === "production",
+//     },
+//   },
+// });
 
-export default App;
+// function App() {
+//   return (
+//     <Provider store={mystore}>
+//       <div className="App">
+//         <QueryClientProvider client={queryClient}>
+//           <AppRouter />
+//         </QueryClientProvider>
+//       </div>
+//     </Provider>
+//   );
+// }
+
+// export default App;
