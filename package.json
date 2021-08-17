@@ -20,7 +20,13 @@
   },
   "homepage": "https://github.com/Matin-Ar/ilearn#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.7",
+    "mongoose-unique-validator": "^2.0.3",
+    "request": "^2.88.2",
+    "validator": "^13.6.0"
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",
