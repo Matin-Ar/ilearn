@@ -1,0 +1,237 @@
+/*          Sizing Variebles         */
+$xm: 0.5em;
+$sm: 1em;
+$mm: 4em;
+$lm: 6em;
+$xl: 10em;
+$side-padding: 140px;
+$main-border-radius: 10px;
+
+/*          color variebles         */
+$main-dark: #272735;
+$secondary-dark: #313143;
+$white: #ffffff;
+$green-btn: #27ad8d;
+$purple-btn: #5b5386;
+$border-gray: #979797;
+
+// font family variable//
+
+$default-font: "Vazir";
+
+// FONT IMPORTS //
+
+@font-face {
+  font-family: "Vazir";
+  src: url("./Assets/Fonts/Vazir.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Vazir";
+  src: url("./Assets/Fonts/Vazir-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Vazir";
+  src: url("./Assets/Fonts/Vazir-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Vazir";
+  src: url("./Assets/Fonts/Vazir-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  font-family: "vazir";
+  max-height: 100vh;
+}
+
+//APP//
+.App {
+  // overflow-x: hidden;
+  // overflow-y: hidden;
+  font-family: "vazir";
+  max-height: 100%;
+}
+
+/* btns */
+.btn {
+  border-radius: $main-border-radius;
+  border: none;
+  color: $white;
+  cursor: pointer;
+  font-family: "vazir";
+  font-size: 14px;
+  font-weight: bold;
+  margin: $xm;
+  outline: none;
+  padding: 1em 3em;
+}
+
+.purplebtn {
+  background-color: $purple-btn;
+}
+
+.greenbtn {
+  background-color: $green-btn;
+}
+
+/* MAIN MENU */
+.main-menu-container {
+  background-color: $main-dark;
+  color: $white;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+}
+
+.main-menu__logo-dropdown-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.main-menu__logo {
+  margin-right: $side-padding;
+  font-size: 30px;
+}
+
+.courses-dropdown-container {
+  margin-right: $xl;
+  display: flex;
+  align-items: center;
+}
+
+.courses-dropdown__wrapper {
+  background-color: #1d1d27;
+  direction: rtl;
+  padding: 0.5em 1em;
+  border-radius: $main-border-radius;
+  cursor: pointer;
+  position: relative;
+}
+
+.courses-dropdown__arrow {
+  padding-left: $lm;
+}
+
+.courses-dropdown__arrow::before {
+  content: "";
+  position: absolute;
+  top: 80%;
+  left: 20px;
+  width: 15px;
+  height: 5px;
+  border-radius: 10px;
+  background-color: white;
+  transform: rotate(45deg) translateX(-90%) translateY(-95%);
+}
+
+.courses-dropdown__arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  width: 15px;
+  height: 5px;
+  border-radius: 10px;
+  background-color: white;
+  transform-origin: "50% 50%";
+  transform: rotate(-45deg) translateX(10%) translateY(10%);
+}
+
+.courses-dropdown__text {
+  font-size: 15px;
+}
+
+.main-menu__login-register-container {
+  display: flex;
+  margin-left: $side-padding;
+}
+
+//Homepage
+.homepage-container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 80px 1fr 64px;
+  grid-gap: none;
+}
+
+.homepage-hero {
+  background-color: $secondary-dark;
+  direction: rtl;
+  display: flex;
+  align-items: center;
+}
+
+.homepage-hero-right-wrapper {
+  margin-right: $side-padding;
+  max-width: 40%;
+  max-height: 500px;
+}
+
+.homepage-hero-left-wrapper {
+  // max-height: 500px;
+}
+
+.homepage-hero__svg {
+  height: 80%;
+  width: 80%;
+}
+
+.homepage-hero__title {
+  color: $white;
+  margin-bottom: $sm;
+}
+
+.homepage-hero__text {
+  color: $white;
+  word-wrap: break-word;
+  max-width: 600px;
+}
+//footer
+.main-footer-container {
+  // position: absolute;
+  direction: rtl;
+  border-top: 1px solid $border-gray;
+  display: flex;
+  align-items: center;
+  // bottom: 0;
+  // left: 0;
+  width: 100vw;
+  height: 64px;
+  background-color: $secondary-dark;
+  font-family: $default-font;
+}
+
+.main-footer__links {
+  display: flex;
+  margin-right: $side-padding;
+}
+
+.main-footer__links a {
+  text-decoration: none;
+  color: $white;
+}
+
+.main-footer__link {
+  color: $white;
+  list-style: none;
+  text-decoration: none;
+  margin-left: $mm;
+}
