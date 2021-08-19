@@ -9,11 +9,15 @@ import {
 
 //imported pages and components
 import HomePage from "../Pages/HomePage";
+import RegisterPage from "../Pages/RegisterPage";
 
 function AppRouter() {
   return (
     <Router>
-      <HomePage />
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/register" component={RegisterPage} />
+      </Switch>
     </Router>
   );
 }

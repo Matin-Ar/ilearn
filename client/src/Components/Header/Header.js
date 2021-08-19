@@ -2,6 +2,7 @@ import React from "react";
 import CoursesDropdown from "../Button/CoursesDropdown";
 import LoginBtn from "../Button/LoginBtn";
 import RegisterBtn from "../Button/RegisterBtn";
+import HambergurMenu from "./HambergurMenu";
 import Logo from "./Logo";
 
 function Header() {
@@ -16,6 +17,7 @@ function Header() {
         <LoginBtn />
         <RegisterBtn />
       </div>
+      <HambergurMenu />
     </div>
   );
 }

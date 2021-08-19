@@ -1,0 +1,66 @@
+REGISTER 
+
+/api/activation/sendcode - method post - body : number
+
+{
+    "number": "09024262561"
+}
+
+200 OK
+400 error
+
+-------------------------------------------------------------------------------
+
+/api/users/signup --method post -- body shamele  name , lastname , number , verification code 
+
+{
+    "name": "Matin",
+    "lastname": "Ar",
+    "number": "09024262561",
+    "code": "1592"
+}
+
+201 created 
+400 error 
+
+
+
+
+--------------------------------------------------
+--------------------------------------------------
+
+LOGIN
+
+/api/verification/sendcode
+
+{
+    "number": "09024262561"
+}
+---------------------
+/api/users/login/
+
+{
+    "number": "09024262561",
+    "code": "1592"
+}
+
+
+------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+/api/users/logout -  POST -
+only needs token
+
+------------------------------------------------------
+/api/users/logoutAll -  POST - logs out all tokens
+only needs token
+
+
+----------------------------------------------------------------------------------
+------------------------------------------------------
+
+GET: /api/users/me
+only needs token
+
+
+
