@@ -197,12 +197,28 @@ body {
 .homepage-hero__title {
   color: $white;
   margin-bottom: $sm;
+  margin-top: -2em;
 }
 
 .homepage-hero__text {
   color: $white;
   word-wrap: break-word;
   max-width: 600px;
+}
+
+.homepage-hero__cta {
+  height: 40px;
+  width: 190px;
+  font-family: "vazir";
+
+  border-radius: $main-border-radius;
+  background-color: $green-btn;
+  outline: none;
+  border: none;
+  color: $white;
+  font-size: 15px;
+  margin-top: $sm;
+  float: left;
 }
 //footer
 .main-footer-container {
