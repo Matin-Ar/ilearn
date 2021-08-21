@@ -61,4 +61,16 @@ router.get('/users/me', auth, async (req, res) => {
     res.send(req.user)
 })
 
+//temp**
+router.delete('/users/me', auth, async (req, res) => {
+    try {
+        const user = await User.findById(req.user._id)
+        await user.delete()
+        res.send({ message: 'Deleted !'})
+    } catch (e) {
+        res.status(500).send()
+    }
+})
+//temp**
+
 module.exports = router
