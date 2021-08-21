@@ -3,6 +3,7 @@ const registerationReducerDefaults = {
   fname: "",
   lastname: "",
   number: null,
+  verificationCode: null,
   step: 1,
 };
 
@@ -19,6 +20,20 @@ const registerationReducer = (state = registerationReducerDefaults, action) => {
       return {
         ...state,
         step: state.step - 1,
+      };
+
+    case "SET_PHONE_NUM":
+      return {
+        ...state,
+        number: action.payload,
+      };
+
+    case "SET_REG_DATA":
+      return {
+        ...state,
+        fname: action.fname,
+        lastname: action.lastName,
+        verificationCode: action.verificationCode,
       };
 
     default:

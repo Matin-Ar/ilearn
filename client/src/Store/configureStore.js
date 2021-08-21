@@ -5,6 +5,7 @@ import thunk from "redux-thunk";
 // import usersReducer from "../Reducers/authentication";
 // import errorsReducer from "../Reducers/errorsReducer";
 import registerationReducer from "../Reducers/registrationReducer";
+import notificationReducer from "../Reducers/notificationReducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -14,6 +15,7 @@ export default () => {
     combineReducers({
       //   errorMsg: errorsReducer,
       registeration: registerationReducer,
+      notification: notificationReducer,
       //   user: usersReducer,
     }),
     composeEnhancers(applyMiddleware(thunk))

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function RegisterBtn() {
   return (
-    <Link to="/register">
+    <Link to="/Register">
       <button className="btn greenbtn">ثبت نام</button>
     </Link>
   );

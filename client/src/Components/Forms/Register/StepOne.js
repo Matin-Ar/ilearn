@@ -16,7 +16,6 @@ export function StepOne({ state, dispatch }) {
   const handleNextStep = (e) => {
     if (phoneNum !== null && validator.isMobilePhone(phoneNum, ["fa-IR"]))
       dispatch(startStepTwo(phoneNum));
-    console.log("phone is valid");
   };
 
   return (
@@ -30,6 +29,7 @@ export function StepOne({ state, dispatch }) {
           type="number"
           placeholder="لطفا شماره موبایل خود را وارد نمایید"
           onChange={(e) => SetPhoneNum(e.target.value)}
+          required
         ></input>
         <button
           className="register-stepone__button"

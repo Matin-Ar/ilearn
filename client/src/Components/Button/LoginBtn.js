@@ -1,9 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function LoginBtn() {
   return (
     <div>
-      <button className="btn purplebtn">ورود</button>
+      <Link to="/Login">
+        <button className="btn purplebtn">ورود</button>
+      </Link>
     </div>
   );
 }

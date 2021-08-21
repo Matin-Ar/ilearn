@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 
 import StepOne from "./StepOne";
+import StepThree from "./StepThree";
+import StepTwo from "./StepTwo";
 
-function Register() {
+export function Register({ step }) {
   const [registerFrom, setRegisterForm] = useState({
     mobile: undefined,
     fname: undefined,
@@ -11,22 +14,17 @@ function Register() {
   });
   return (
     <div className="registerpage-wrapper">
-      <StepOne />
-      {/* <form className="registerpage-wrapper">
-        <label htmlFor="mobile">شماره موبایل</label>
-        <input type="text" id="mobile" name="mobile"></input>
-
-        <label htmlFor="fname">نام</label>
-        <input type="text" id="fname" name="fname"></input>
-
-        <label htmlFor="sureName">نام خانوادگی</label>
-        <input type="text" id="sureName" name="sureName"></input>
-
-        <label htmlFor="activationCode">کد تایید</label>
-        <input type="text" id="activationCode" name="activationCode"></input>
-      </form> */}
+      {step === 1 && <StepOne />}
+      {step === 2 && <StepTwo />}
+      {step === 3 && <StepThree />}
     </div>
   );
 }
 
-export default Register;
+const mapStateToProps = (state) => {
+  return {
+    step: state.registeration.step,
+  };
+};
+
+export default connect(mapStateToProps)(Register);

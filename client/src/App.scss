@@ -303,8 +303,9 @@ input::-webkit-inner-spin-button {
   margin-left: $mm;
 }
 
-//Registerpage
-.registerpage-container {
+//Registerpage and LOGIN
+.registerpage-container,
+.loginpage-container {
   width: 100vw;
   height: 100vh;
   display: grid;
@@ -312,7 +313,8 @@ input::-webkit-inner-spin-button {
   grid-gap: none;
 }
 
-.registerpage-wrapper {
+.registerpage-wrapper,
+.loginpage-wrapper {
   background-color: $secondary-dark;
   display: flex;
   flex-direction: column;
@@ -347,34 +349,89 @@ input::-webkit-inner-spin-button {
 
 .register-progressbar__step2img {
   position: absolute;
-
   right: 40%;
   bottom: -40px;
 }
 
-.register-stepone {
+.register-progressbar__step3img {
+  position: absolute;
+  right: 0%;
+  bottom: 10px;
+}
+
+.register-stepthree__btn__wrapper {
+  width: 100%;
+}
+
+.register-stepthree__button {
+  width: 100%;
+  margin-top: $mm;
+  background-color: $green-btn;
+}
+
+.register-stepthree__button:hover {
+  background-color: lighten($green-btn, $amount: 5%);
+}
+
+.register-stepone,
+.register-steptwo,
+.register-stepthree,
+.login-wrapper {
   background-color: $register-purple;
   padding: 3em;
   display: flex;
+  border-radius: $main-border-radius;
   flex-direction: column;
   min-width: 600px;
   direction: rtl;
 }
 
-.register-stepone__title {
+.register-stepthree {
+  position: relative;
+}
+
+.register-stepthree__svg {
+  position: absolute;
+  right: 80%;
+  top: -20px;
+}
+
+.register-stepone__title,
+.register-steptwo__title,
+.register-stepthree__title,
+.login__title {
   font-size: 40px;
   font-weight: bold;
   color: $accent-pink;
   align-self: center;
 }
 
-.register-stepone__lable {
-  align-self: right;
-  color: $white;
-  margin-bottom: $sm;
+.register-stepthree__title {
+  align-self: flex-start;
+  margin-bottom: 5px;
 }
 
-.register-stepone__input {
+.register-stepone__lable,
+.register-steptwo__lable,
+.login__lable {
+  align-self: right;
+  color: $white;
+  margin-bottom: 5px;
+}
+
+.login__lable {
+  margin-bottom: 10px;
+}
+.register-steptwo__lable__span,
+.login__lable__span {
+  font-size: 12px;
+  color: $accent-pink;
+}
+
+.register-stepone__input,
+.register-steptwo__input,
+.login__input,
+.login__verification_input {
   height: 40px;
   border-radius: $main-border-radius;
   padding-right: $sm;
@@ -383,11 +440,17 @@ input::-webkit-inner-spin-button {
   border: none;
 }
 
-.register-stepone__input:focus {
+.register-stepone__input:focus,
+.register-steptwo__input:focus,
+.login__input:focus,
+.login__verification_input:focus {
   border: 1px solid $accent-pink;
 }
 
-.register-stepone__button {
+.register-stepone__button,
+.register-steptwo__button,
+.login__button,
+.login__verification__button {
   height: 40px;
   background-color: $green-btn;
   outline: none;
@@ -399,19 +462,41 @@ input::-webkit-inner-spin-button {
   margin-bottom: $sm;
   color: $white;
   font-weight: bold;
+  cursor: pointer;
 }
 
-.register-stepone__paragraph {
+.register-stepone__button:hover,
+.register-steptwo__button:hover,
+.login__button:hover,
+.login__verification__button:hover {
+  background-color: darken($green-btn, $amount: 10%);
+}
+
+.register-stepone__button:disabled,
+.register-steptwo__button:disabled,
+.login__button:disabled,
+.login__verification__button:disabled {
+  background-color: $border-gray;
+}
+
+.login__verification__button {
+  background-color: $accent-pink;
+}
+
+.register-stepone__paragraph,
+.login__paragraph {
   font-size: 12px;
   align-self: center;
   margin-top: $sm;
   color: $white;
 }
 
-.register-stepone__span a {
+.register-stepone__span a,
+.login__span a {
   color: $accent-pink;
   text-decoration: none;
 }
+
 ////////////////////////////////  MEDIA QUERIES /////////////////////////////////////////////
 
 @media (max-width: 950px) {
