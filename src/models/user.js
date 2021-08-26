@@ -36,7 +36,24 @@ const userSchema = new mongoose.Schema({
             type: String,
             required: true
         }
-    }]
+    }],
+    activity: [{
+        date: {
+            type: String,
+            required: true
+        },
+        count: {
+            type: Number,
+            required: true,
+            default: 0
+        }
+    }],
+    role: {
+        type: String,
+        required: true,
+        trim: true,
+        default: 'User'
+    }
 }, {
     timestamps: true
 })

@@ -1,17 +1,21 @@
 const express = require('express')
 const User = require('../models/user')
 const auth = require('../middleware/auth')
+const moment = require('moment')
 
 const router = new express.Router()
 
 router.post('/users/signup', async (req, res) => {
     try{
-
         if(!req.body.number) {
             throw new Error("Provide number !")
         }
         await User.verify(req.body.number, req.body.code)
-        const user = new User(req.body)
+        const user = new User({
+            name: req.body.name,
+            lastname: req.body.lastname,
+            number: req.body.number
+        })
         await user.save()
         const token = await user.generateAuthToken()
         res.status(201).send({ user, token })
@@ -71,6 +75,21 @@ router.delete('/users/me', auth, async (req, res) => {
         res.status(500).send()
     }
 })
+
+router.post('/users/activity', auth, async (req, res) => {
+    try {
+        req.user.activity = req.user.activity.concat({
+            date: moment().format(),
+            count: req.body.count
+        })
+        await req.user.save()
+        res.send(req.user.activity)
+    } catch (e) {
+        res.status(500).send()
+    }
+})
 //temp**
+
+
 
 module.exports = router
