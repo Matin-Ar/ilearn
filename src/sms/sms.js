@@ -6,7 +6,7 @@ const sendsms1 = async (number, randomCode) => {
     headers:
     {
         'cache-control': 'no-cache',
-        apikey: '3477ef021ffb9c46c2120bb0063d8ae9c12c9bda0937eb15661ad4aa35d214f6',
+        apikey: process.env.SMS_TOKEN,
         'content-type': 'application/x-www-form-urlencoded' },
     form:
     {
@@ -26,7 +26,7 @@ const sendsms2 = async (number, randomCode) => {
     headers:
     {
         'cache-control': 'no-cache',
-        apikey: '3477ef021ffb9c46c2120bb0063d8ae9c12c9bda0937eb15661ad4aa35d214f6',
+        apikey: process.env.SMS_TOKEN,
         'content-type': 'application/x-www-form-urlencoded' },
     form:
     {
