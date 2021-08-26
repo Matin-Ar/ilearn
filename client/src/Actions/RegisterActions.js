@@ -1,6 +1,7 @@
 import axios from "axios";
 
 import { startAddAlert } from "./NotificationActions";
+import { startAddUserLoginData } from "./UserActions";
 
 //Register Actions
 
@@ -37,7 +38,7 @@ export const startStepTwo = (number) => (dispatch) => {
     .post("/api/activation/sendcode", { number })
     .then((res) => {
       if (res.status === 200) {
-        dispatch(startAddAlert("success", "helooooo"));
+        dispatch(startAddAlert("success", "کد با موفقیت ارسال شد"));
         dispatch(setNextStep(2));
       }
       console.log("this is from start step 2 ", res.data);
@@ -64,6 +65,9 @@ export const startStepThree =
       })
       .then((res) => {
         if (res.status === 201) {
+          console.log(res.data);
+          localStorage.setItem("jwtToken", res.data.token);
+          dispatch(startAddUserLoginData(res.data.token, res.data.user));
           dispatch(setNextStep(3));
         }
       });

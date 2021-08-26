@@ -10,8 +10,9 @@
     "alertifyjs": "^1.13.1",
     "axios": "^0.21.1",
     "moment": "^2.29.1",
-    "node-sass": "^6.0.1",
+    "node-sass": "4.14.1",
     "react": "^17.0.2",
+    "react-calendar-heatmap": "^1.8.1",
     "react-dom": "^17.0.2",
     "react-moment": "^1.1.1",
     "react-redux": "^7.2.4",
@@ -22,7 +23,11 @@
     "redux-thunk": "^2.3.0",
     "uuid": "^3.4.0",
     "validator": "^13.6.0",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "yarn": "^1.22.11"
+  },
+  "devDependencies": {
+    "sass-loader": "^11.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

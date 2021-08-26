@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="23" viewBox="0 0 30.859 27.859">
+  <g id="ruby" transform="translate(-13.441 -18.384)">
+    <path id="Path_195" data-name="Path 195" d="M43.14,28.192H14.6a.595.595,0,0,1-.455-.978L20.99,19.1a.594.594,0,0,1,.455-.211H36.3a.594.594,0,0,1,.455.211L43.6,27.214a.595.595,0,0,1-.455.978ZM15.879,27H41.862l-5.841-6.929h-14.3Z" transform="translate(0 0)" fill="#fff" stroke="#fff" stroke-width="1"/>
+    <path id="Path_196" data-name="Path 196" d="M29.2,65.157,14.475,47.67l.91-.766L29.2,63.31,43.015,46.9l.91.766Z" transform="translate(-0.33 -19.69)" fill="#fff" stroke="#fff" stroke-width="1"/>
+    <path id="Path_197" data-name="Path 197" d="M48.478,45.17h0a.594.594,0,0,1-.561-.4L41.943,27.827a.6.6,0,0,1,.082-.55L48,19.158a.616.616,0,0,1,.958,0l5.976,8.119a.594.594,0,0,1,.082.55L49.038,44.773A.594.594,0,0,1,48.478,45.17ZM43.169,27.728l5.309,15.059,5.31-15.059-5.31-7.214Z" transform="translate(-19.608 -0.032)" fill="#fff" stroke="#fff" stroke-width="1"/>
+    <rect id="Rectangle_17" data-name="Rectangle 17" width="8.247" height="1.189" transform="translate(22.03 19.374) rotate(79.869)" fill="#fff" stroke="#fff" stroke-width="1"/>
+    <rect id="Rectangle_18" data-name="Rectangle 18" width="1.189" height="8.247" transform="translate(35.712 19.373) rotate(10.137)" fill="#fff" stroke="#fff" stroke-width="1"/>
+  </g>
+</svg>

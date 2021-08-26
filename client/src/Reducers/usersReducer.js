@@ -1,58 +1,50 @@
-// //userRegister reducer defaults
-// const errorsReducerDefaults = {
-//   registerErrorMsg: [],
-//   registersuccessMsg: "",
-//   loginSuccess: "",
-//   loginError: "",
-// };
+//USER Reducer defaults
+const userReducerDefaults = {
+  name: "",
+  lastname: "",
+  number: null,
+  createdAt: "",
+  token: "",
+  isSignedIn: false,
+};
 
-// //USERS reducer
-// const errorsReducer = (state = errorsReducerDefaults, action) => {
-//   switch (action.type) {
-//     case "SET_REGISTER_ERROR":
-//       return {
-//         ...state,
-//         registerErrorMsg: [...state.registerErrorMsg, ...action.error],
-//       };
+//USERS reducer
+const userReducer = (state = userReducerDefaults, action) => {
+  switch (action.type) {
+    case "ADD_USER_LOGIN_DATA":
+      return {
+        ...state,
+        name: action.payload.name,
+        lastname: action.payload.lastname,
+        number: action.payload.number,
+        createdAt: action.payload.createdAt,
+        token: action.payload.token,
+        isSignedIn: true,
+      };
 
-//     case "SET_REGISTER_SUCCESS":
-//       return {
-//         ...state,
-//         registersuccessMsg: action.msg,
-//       };
+    case "SET_CURRENT_USER":
+      return {
+        ...state,
+        name: action.name,
+        lastname: action.lastname,
+        number: action.number,
+        createdAt: action.createdAt,
+        token: action.token,
+        isSignedIn: true,
+      };
 
-//     case "CLEAR_ALL_ERRORS":
-//       return {
-//         ...errorsReducerDefaults,
-//       };
+    case "USER_LOG_OUT":
+      return {
+        name: "",
+        lastname: "",
+        number: null,
+        createdAt: "",
+        token: "",
+        isSignedIn: false,
+      };
+    default:
+      return state;
+  }
+};
 
-//     case "CLEAR_REGISTER_MSG":
-//       return {
-//         ...state,
-//         registerErrorMsg: "",
-//         registersuccessMsg: "",
-//       };
-
-//     case "SET_LOGIN_SUCCESS":
-//       return {
-//         ...state,
-//         loginSuccess: action.msg,
-//       };
-//     case "SET_LOGIN_ERROR":
-//       return {
-//         ...state,
-//         loginError: action.error,
-//       };
-
-//     case "CLEAR_LOGIN_ERROR_MSG":
-//       return {
-//         ...state,
-//         loginError: "",
-//       };
-
-//     default:
-//       return state;
-//   }
-// };
-
-// export default errorsReducer;
+export default userReducer;
