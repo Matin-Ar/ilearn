@@ -4,7 +4,7 @@ const sharp = require('sharp')
 const Course = require('../models/course')
 const auth = require('../middleware/auth')
 const adminAuth = require('../middleware/adminAuth')
-const ps = require('../videos/parsaspace')
+const ps = require('../APIs/parsaspace')
 const router = new express.Router()
 
 const upload = multer({
