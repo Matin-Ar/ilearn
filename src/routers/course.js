@@ -4,26 +4,40 @@ const sharp = require('sharp')
 const Course = require('../models/course')
 const auth = require('../middleware/auth')
 const adminAuth = require('../middleware/adminAuth')
+const ps = require('../APIs/parsaspace')
 const router = new express.Router()
 
 const upload = multer({
     limits: {
-        fileSize: 1000000
+        // fileSize: 1000000
     },
     fileFilter(req, file, cb) {
-        if(!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
-            return cb(new Error('Please upload an image'))
+        if(!file.originalname.match(/\.(jpg|jpeg|png|mp4|avi)$/)) {
+            return cb(new Error('You can only upload these formats: jpg,hpeg,png,mp4,avi'))
         }
         cb(undefined, true)
     }
 })
 
-router.post('/courses', auth, adminAuth, upload.single('avatar'), async (req,res) => {
+router.post('/courses', auth, adminAuth, upload.fields([{ name: 'avatar', maxCount: 1 }, { name: 'demo', maxCount: 1 }]), async (req,res) => {
     try {
-        const buffer = await sharp(req.file.buffer).resize({ width: 390, height: 240 }).png().toBuffer()
+        const avatarBuffer = await sharp(req.files.avatar[0].buffer).resize({ width: 390, height: 240 }).png().toBuffer()
+        const demoBuffer = req.files.demo[0].buffer
+        await ps.makeFolder(req.body.title)
+        const demoFile = await ps.uploadDemo(demoBuffer, req.files.demo[0].originalname, req.body.title)
         const course = new Course({
-            ...req.body,
-            avatar: buffer
+            title: req.body.title,
+            price: req.body.price,
+            shortdesc: req.body.shortdesc,
+            longdesc: req.body.longdesc,
+            duration: req.body.duration,
+            language: req.body.language,
+            prerequisite: req.body.prerequisite,
+            instructor: req.body.instructor,
+            level: req.body.level,
+            badge: req.body.badge,
+            demolink: JSON.parse(demoFile).downloadLink,
+            avatar: avatarBuffer
         })
         await course.save()
         res.status(201).send(course)

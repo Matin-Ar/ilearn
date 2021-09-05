@@ -22,7 +22,17 @@ const courseSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    duration: {
+        type: String,
+        required: true,
+        trim: true
+    },
     language: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    prerequisite: {
         type: String,
         required: true,
         trim: true
@@ -38,6 +48,11 @@ const courseSchema = new mongoose.Schema({
         trim: true
     },
     badge: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    demolink: {
         type: String,
         required: true,
         trim: true

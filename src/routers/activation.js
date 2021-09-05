@@ -1,7 +1,6 @@
 const express = require('express')
 const Activation = require('../models/activation')
-const sendsms = require('../sms/sms')
-// const auth = require('../middleware/auth')
+const sendsms = require('../APIs/sms')
 const signup = require('../middleware/signup')
 const login = require('../middleware/login')
 const router = new express.Router()
