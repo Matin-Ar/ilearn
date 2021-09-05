@@ -33,7 +33,7 @@ export const startSetCurrentUser = () => (dispatch) => {
     (resp) => {
       const token = localStorage.getItem("jwtToken");
       dispatch(SetCurrentUser(token, resp.data));
-      console.log(resp);
+      console.log("this is from set current user", resp);
     },
     (error) => console.log("there was a error in setting current user", error)
   );

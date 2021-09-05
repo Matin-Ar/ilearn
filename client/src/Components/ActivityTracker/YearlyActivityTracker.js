@@ -3,8 +3,6 @@ import React from "react";
 import CalendarHeatmap from "react-calendar-heatmap";
 // import ReactTooltip from "react-tooltip";
 
-import "../ActivityTracker/react-calender-heatmap.scss";
-
 const today = new Date();
 
 function YearlyActivityTracker() {
@@ -16,7 +14,7 @@ function YearlyActivityTracker() {
   });
 
   return (
-    <div>
+    <>
       <CalendarHeatmap
         startDate={shiftDate(today, -360)}
         endDate={today}
@@ -62,7 +60,7 @@ function YearlyActivityTracker() {
         // }
       />
       {/* <ReactTooltip /> */}
-    </div>
+    </>
   );
 }
 

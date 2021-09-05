@@ -18,6 +18,7 @@ $purple-btn: #5b5386;
 $register-purple: #403a5f;
 $border-gray: #979797;
 $accent-pink: #f23e6e;
+$bs-success-rgb: #198754;
 
 // font family variable//
 $default-font: "Vazir";
@@ -54,7 +55,7 @@ $default-font: "Vazir";
 *::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box !important;
 }
 html,
 body {
@@ -80,22 +81,22 @@ input::-webkit-inner-spin-button {
 .btn {
   border-radius: $main-border-radius;
   border: none;
-  color: $white;
+  color: $white !important;
   cursor: pointer;
   font-family: "vazir";
   font-size: 14px;
   font-weight: bold;
   margin: $xm;
   outline: none;
-  padding: 1em 3em;
+  padding: 1em 3em !important;
 }
 
 .purplebtn {
-  background-color: $purple-btn;
+  background-color: $purple-btn !important;
 }
 
 .greenbtn {
-  background-color: $green-btn;
+  background-color: $green-btn !important;
 }
 
 /* MAIN MENU */
@@ -312,9 +313,9 @@ input::-webkit-inner-spin-button {
   max-height: 500px;
 }
 
-.homepage-hero-left-wrapper {
-  // max-height: 500px;
-}
+// .homepage-hero-left-wrapper {
+//   // max-height: 500px;
+// }
 
 .homepage-hero__svg {
   height: 85%;
@@ -604,8 +605,188 @@ input::-webkit-inner-spin-button {
   grid-gap: none;
 }
 
+.dashboardpage-wrapper {
+  background-color: $secondary-dark;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboardpage__top {
+  display: flex;
+  direction: rtl;
+  justify-content: space-between;
+  padding: 4em;
+  color: $white;
+  width: 100%;
+}
+
+.dashboardpage__button:hover {
+  background-color: darken($green-btn, $amount: 10%);
+}
+
 .dashboardpage-activity-wrapper {
-  max-width: 60%;
+  width: 80%;
+  height: 60%;
+}
+
+.short-activity-tracker {
+  width: 80%;
+  max-height: 80%;
+}
+
+.dashboardpage-grid {
+  display: grid;
+  grid-gap: $sm;
+
+  width: 100%;
+  padding: 0 $side-padding;
+  min-height: 500px;
+  grid-template-columns: 1fr 300px;
+}
+
+.dashboardpage-grid__courses {
+  grid-column: 1/2;
+  grid-row: 1/-4;
+  padding: $sm;
+}
+.dashboardpage-grid__profile {
+  background-color: aqua;
+  width: 100%;
+  height: 300px;
+}
+
+.dashboardpage-grid__activity {
+  background-color: $register-purple;
+  border-radius: $main-border-radius;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 2/-1;
+}
+
+.dashboardpage-grid__leaderboard {
+  background-color: $purple-btn;
+  grid-column: 2/-1;
+  width: 100%;
+  height: 300px;
+}
+
+//CourseRow
+
+.CourseRow-container {
+  background-color: $register-purple;
+  border-radius: $main-border-radius;
+  margin-bottom: $sm;
+  width: 100%;
+  display: flex;
+  direction: rtl;
+  padding: $sm;
+}
+
+.CourseRow__info-container {
+  margin-right: $sm;
+  color: $white;
+  display: flex;
+  min-width: 50%;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+// .CourseRow__info-progress-bar {
+// }
+
+progress {
+  vertical-align: baseline;
+}
+@-webkit-keyframes progress-bar-stripes {
+  0% {
+    background-position-x: 1rem;
+  }
+}
+
+@keyframes progress-bar-stripes {
+  0% {
+    background-position-x: 1rem;
+  }
+}
+.progress {
+  display: flex;
+  height: 1rem;
+  overflow: hidden;
+  font-size: 0.75rem;
+  background-color: #e9ecef;
+  border-radius: 0.25rem;
+}
+
+.progress-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #0d6efd;
+  transition: width 0.6s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .progress-bar {
+    transition: none;
+  }
+}
+
+.bg-success {
+  background-color: rgba($bs-success-rgb, 1%) !important;
+}
+
+.progress-bar-striped {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+}
+
+.progress-bar-animated {
+  -webkit-animation: 1s linear infinite progress-bar-stripes;
+  animation: 1s linear infinite progress-bar-stripes;
+}
+@media (prefers-reduced-motion: reduce) {
+  .progress-bar-animated {
+    -webkit-animation: none;
+    animation: none;
+  }
+}
+
+.CourseRow__left-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  margin: 0 auto;
+  width: 100%;
+}
+.CourseRow__left-tool-btn-container {
+  float: left;
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 0 auto;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.CourseRow__left-tool-btn {
+  margin-right: $sm;
 }
 
 ////////////////////////////////  MEDIA QUERIES /////////////////////////////////////////////
@@ -696,4 +877,78 @@ input::-webkit-inner-spin-button {
   .main-footer-container {
     display: none;
   }
+}
+
+/*
+ * react-calendar-heatmap styles
+ *
+ * All of the styles in this file are optional and configurable!
+ * The github and gitlab color scales are provided for reference.
+ */
+
+.react-calendar-heatmap text {
+  font-size: 6px;
+  fill: $white;
+  margin-right: 100px !important;
+}
+
+.react-calendar-heatmap .react-calendar-heatmap-small-text {
+  font-size: 5px;
+}
+
+.react-calendar-heatmap rect:hover {
+  stroke: $accent-pink;
+  stroke-width: 1px;
+}
+
+/*
+ * Default color scale
+ */
+
+.react-calendar-heatmap .color-empty {
+  fill: #eeeeee;
+}
+
+.react-calendar-heatmap .color-filled {
+  fill: #8cc665;
+}
+
+/*
+ * Github color scale
+ */
+
+.react-calendar-heatmap .color-github-0 {
+  fill: #eeeeee;
+}
+.react-calendar-heatmap .color-github-1 {
+  fill: #d6e685;
+}
+.react-calendar-heatmap .color-github-2 {
+  fill: #8cc665;
+}
+.react-calendar-heatmap .color-github-3 {
+  fill: #44a340;
+}
+.react-calendar-heatmap .color-github-4 {
+  fill: #1e6823;
+}
+
+/*
+ * Gitlab color scale
+ */
+
+.react-calendar-heatmap .color-gitlab-0 {
+  fill: #ededed;
+}
+.react-calendar-heatmap .color-gitlab-1 {
+  fill: #acd5f2;
+}
+.react-calendar-heatmap .color-gitlab-2 {
+  fill: #7fa8d1;
+}
+.react-calendar-heatmap .color-gitlab-3 {
+  fill: #49729b;
+}
+.react-calendar-heatmap .color-gitlab-4 {
+  fill: #254e77;
 }

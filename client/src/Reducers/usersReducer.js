@@ -5,7 +5,7 @@ const userReducerDefaults = {
   number: null,
   createdAt: "",
   token: "",
-  isSignedIn: false,
+  isSignedIn: true,
 };
 
 //USERS reducer

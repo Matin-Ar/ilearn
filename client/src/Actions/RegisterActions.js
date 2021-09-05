@@ -44,7 +44,7 @@ export const startStepTwo = (number) => (dispatch) => {
       console.log("this is from start step 2 ", res.data);
     })
     .catch((error) => {
-      console.log(error.response.data.error);
+      console.log("this is from startStepTwo err", error.response.data.error);
 
       dispatch(startAddAlert("error", error.response.data.error));
     });
@@ -65,7 +65,7 @@ export const startStepThree =
       })
       .then((res) => {
         if (res.status === 201) {
-          console.log(res.data);
+          console.log("this is from res signup", res.data);
           localStorage.setItem("jwtToken", res.data.token);
           dispatch(startAddUserLoginData(res.data.token, res.data.user));
           dispatch(setNextStep(3));

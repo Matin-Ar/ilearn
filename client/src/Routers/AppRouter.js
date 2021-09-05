@@ -46,6 +46,12 @@ function AppRouter(props) {
           component={DashboardPage}
           isAuth={props.isAuth}
         />
+
+        <PrivateRoute
+          path="/Admin"
+          component={DashboardPage}
+          isAuth={props.isAuth}
+        />
       </Switch>
       <Notification />
     </Router>
