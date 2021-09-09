@@ -13,6 +13,7 @@ import HomePage from "../Pages/HomePage";
 import RegisterPage from "../Pages/RegisterPage";
 import Notification from "../Components/Notification/Notification";
 import LoginPage from "../Pages/LoginPage";
+import AdminDashboardPage from "../Pages/AdminDashboardPage";
 
 import setAutherizationToken from "../Utils/setAutherizationToken";
 import { startSetCurrentUser } from "../Actions/UserActions";
@@ -49,7 +50,7 @@ function AppRouter(props) {
 
         <PrivateRoute
           path="/Admin"
-          component={DashboardPage}
+          component={AdminDashboardPage}
           isAuth={props.isAuth}
         />
       </Switch>

@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 
 //import assets
 import { ReactComponent as HeroSvg } from "../Assets/Svg/Hero-image.svg";
@@ -26,7 +27,9 @@ function HomePage() {
             در شصت و سه درصد گذشته،{" "}
           </p>
 
-          <button className="homepage-hero__cta">بزن بریم</button>
+          <Link to="/admin">
+            <button className="homepage-hero__cta">بزن بریم</button>
+          </Link>
         </div>
       </div>
       <Footer />

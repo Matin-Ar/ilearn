@@ -1453,6 +1453,11 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.9.3.tgz#8b68da1ebd7fc603999cf6ebee34a4899a14b88e"
   integrity sha512-xDu17cEfh7Kid/d95kB6tZsLOmSWKCZKtprnhVepjsSaCij+lM3mItSJDuuHDMbCWTh8Ejmebwb+KONcCJ0eXQ==
 
+"@ramonak/react-progress-bar@^3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@ramonak/react-progress-bar/-/react-progress-bar-3.2.1.tgz#dbb494f5b1c96af67489168dc5923e5982791bf2"
+  integrity sha512-maDK1QLnh8o0ziT6o6xPe76PBERkM1/pO+VHzomOpFW/dFPragmQm3Pd8+0AA/hl9YC3vJtgttK18TMOuDAxYA==
+
 "@react-aria/ssr@^3.0.1":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@react-aria/ssr/-/ssr-3.0.3.tgz#eabdb731374df07f361ca9ed5abb4601e0c8aefe"
@@ -9530,6 +9535,11 @@ raw-body@2.4.0:
     http-errors "1.7.2"
     iconv-lite "0.4.24"
     unpipe "1.0.0"
+
+react-accessible-accordion@^3.3.5:
+  version "3.3.5"
+  resolved "https://registry.yarnpkg.com/react-accessible-accordion/-/react-accessible-accordion-3.3.5.tgz#5d035994a261c832a57e7822f1bbacf914c5a5cc"
+  integrity sha512-yCh3tx+jNuOPs+m58LOBFTGDEaGvM8UfuCNznr855FDAWzwV8V/ZH/TVBvgqH0npP58KrrVrHpj4jcy0EE5hEw==
 
 react-app-polyfill@^2.0.0:
   version "2.0.0"
