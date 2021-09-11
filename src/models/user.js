@@ -52,7 +52,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true,
-        default: 'User'
+        default: 'Admin'
     }
 }, {
     timestamps: true
