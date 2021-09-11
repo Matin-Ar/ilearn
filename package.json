@@ -9,7 +9,8 @@
     "dev": "env-cmd -f ./config/dev.env nodemon src/index.js"
   },
   "engines": {
-    "node": "16.9.1"
+    "node": "16.x",
+    "npm": "7.x"
   },
   "repository": {
     "type": "git",
