@@ -1,6 +1,5 @@
 const express = require('express')
 const multer = require('multer')
-const sharp = require('sharp')
 const Course = require('../models/course')
 const auth = require('../middleware/auth')
 const adminAuth = require('../middleware/adminAuth')
@@ -21,7 +20,7 @@ const upload = multer({
 
 router.post('/courses', auth, adminAuth, upload.fields([{ name: 'avatar', maxCount: 1 }, { name: 'demo', maxCount: 1 }]), async (req,res) => {
     try {
-        const avatarBuffer = await sharp(req.files.avatar[0].buffer).resize({ width: 390, height: 240 }).png().toBuffer()
+        const avatarBuffer = req.files.avatar[0].buffer
         const demoBuffer = req.files.demo[0].buffer
         await ps.makeFolder(req.body.title)
         const demoFile = await ps.uploadDemo(demoBuffer, req.files.demo[0].originalname, req.body.title)
