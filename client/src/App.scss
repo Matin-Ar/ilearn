@@ -841,19 +841,71 @@ progress {
 
 .admin-page-top-menu {
   background-color: $admin-light-bg;
-  height: 50px;
+  height: 60px;
+  display: flex;
+  align-items: center;
   width: 100%;
   border-radius: $main-border-radius;
+  position: relative;
 }
 
 .admin-page-top-menu-wrapper {
   position: fixed;
+  display: flex;
+  align-items: center;
 }
 
 .admin-menu__logo-container {
   margin: $mm;
 }
 
+.admin-page-top-menu-left-profile-container {
+  display: flex;
+  align-items: center;
+  color: $white;
+  margin-left: $sm;
+  padding: 0.4em 1em;
+}
+
+.admin-page-top-menu-left-profile-container:hover {
+  background-color: $admin-hover-bg;
+  border-radius: 10px;
+}
+
+.admin-page-top-menu-left-profile-image {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  border: 2px solid white;
+  position: relative;
+  margin-right: $sm;
+}
+
+.admin-page-top-menu-left-profile-image-container {
+  display: flex;
+  align-items: center;
+}
+
+.admin-page-top-menu-left-profile-image-container::after {
+  background-color: $admin-green;
+  position: absolute;
+  content: "";
+  top: 60%;
+  left: 35%;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+}
+
+.admin-page-top-menu-left-profile-name {
+  font-size: 0.8em;
+  direction: rtl;
+}
+
+.admin-page-top-menu-left-profile-role {
+  font-size: 0.6em;
+  direction: rtl;
+}
 .admin-menu__logo {
   text-align: center;
   color: $white;
