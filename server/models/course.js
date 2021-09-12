@@ -57,6 +57,11 @@ const courseSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    categories: {
+        type: String,
+        required: true,
+        trim: true
+    },
     avatar: {
         type: Buffer
     }

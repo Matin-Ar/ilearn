@@ -18,7 +18,7 @@ const upload = multer({
     }
 })
 
-router.post('/courses', auth, adminAuth, upload.fields([{ name: 'avatar', maxCount: 1 }, { name: 'demo', maxCount: 1 }]), async (req,res) => {
+router.post('/courses', auth, adminAuth, upload.fields([{ name: 'avatar', maxCount: 1 }, { name: 'demo', maxCount: 1 }]), async (req, res) => {
     try {
         const avatarBuffer = req.files.avatar[0].buffer
         const demoBuffer = req.files.demo[0].buffer
@@ -34,8 +34,9 @@ router.post('/courses', auth, adminAuth, upload.fields([{ name: 'avatar', maxCou
             prerequisite: req.body.prerequisite,
             instructor: req.body.instructor,
             level: req.body.level,
-            badge: req.body.badge,
+            badge: "alaki",
             demolink: JSON.parse(demoFile).downloadLink,
+            categories: "alaki",
             avatar: avatarBuffer
         })
         await course.save()
@@ -45,6 +46,16 @@ router.post('/courses', auth, adminAuth, upload.fields([{ name: 'avatar', maxCou
     }
 }, (error, req, res, next) => {
     res.status(400).send({ error: error.message })
+})
+
+router.get('/courses', auth, async (req, res) => {
+    try {
+         const course = await Course.find({ }, ["title", "instructor", "categories", "price" , "createdAt" ], { sort: { title : 1 }, limit: parseInt(req.query.limit), skip: parseInt(req.query.skip) })
+         console.log(course)
+         res.status(200).send(course)
+} catch(e) {
+        res.status(400).send(e)
+    }
 })
 
 // router.patch('/api/courses/:title', auth, adminAuth, async (req, res) => {
@@ -110,18 +121,18 @@ router.post('/courses', auth, adminAuth, upload.fields([{ name: 'avatar', maxCou
 //     }
 // })
 
-// router.get('/api/courses/:title/avatar', async (req, res) => {
-//     try {
-//         const course = await Course.findOne({ title: req.params.title })
-//         if (!course) {
-//             throw new Error()
-//         }
-//         res.set('Content-Type', 'image/png')
-//         res.send(course.avatar)
-//     }   catch (e) {
-//         res.status(404).send()
-//     }
-// })
+router.get('/courses/avatar/:id', async (req, res) => {
+    try {
+        const course = await Course.findOne({ _id: req.params.id })
+        if (!course) {
+            throw new Error()
+        }
+        res.set('Content-Type', 'image/png')
+        res.send(course.avatar)
+    }   catch (e) {
+        res.status(404).send()
+    }
+})
 
 
 module.exports = router
