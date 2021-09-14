@@ -51,7 +51,6 @@ router.post('/courses', auth, adminAuth, upload.fields([{ name: 'avatar', maxCou
 router.get('/courses', auth, async (req, res) => {
     try {
          const course = await Course.find({ }, ["title", "instructor", "categories", "price" , "createdAt" ], { sort: { title : 1 }, limit: parseInt(req.query.limit), skip: parseInt(req.query.skip) })
-         console.log(course)
          res.status(200).send(course)
 } catch(e) {
         res.status(400).send(e)
