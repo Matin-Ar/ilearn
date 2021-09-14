@@ -981,7 +981,8 @@ progress {
   display: none;
 }
 
-.admin-add-course-container {
+.admin-add-course-container,
+.admin-view-all-courses-container {
   position: relative;
   margin-top: 30px;
   background-color: $admin-light-bg;
@@ -990,6 +991,13 @@ progress {
   font-family: "vazir";
 }
 
+.admin-view-all-courses-top-container {
+  background-color: $admin-light-bg;
+  border-radius: $main-border-radius;
+  direction: rtl;
+  font-family: "vazir";
+  height: 100px;
+}
 .add-course-step-one-container {
   padding: 30px;
   color: $white;
@@ -1095,6 +1103,91 @@ progress {
   margin-top: 1.5em;
   text-align: center;
   line-height: 2em;
+}
+
+////////////////////////////////  tables /////////////////////////////////////////////
+
+.admin-view-all-courses-table {
+  width: 100%;
+  color: white;
+  padding: 10px;
+}
+
+.admin-view-all-courses-table-head {
+  background-color: #343d55;
+  color: $white;
+  height: 70px;
+}
+
+.admin-view-all-courses-table-td-avatar-group {
+  display: flex;
+  align-items: center;
+  margin: $sm;
+}
+.admin-view-all-courses-table-tr:hover {
+  background-color: darken(#343d55, 10%);
+}
+
+.admin-view-all-courses-table-tr-loader {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-view-all-courses-top-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+.admin-view-all-courses-top-button {
+  background-color: #7367f0;
+  padding: 0.6em 1.5em;
+  color: white;
+  border-radius: $main-border-radius;
+  text-decoration: none;
+}
+
+#admin-view-all-courses-top-container-input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border: 1px solid $border-gray;
+  width: 70%;
+  height: 40px;
+  border-radius: $main-border-radius;
+  padding-right: $sm;
+  color: $white;
+}
+
+.admin-view-all-courses-wrapper::-webkit-scrollbar {
+  width: 0.5vw;
+}
+
+.admin-view-all-courses-wrapper::-webkit-scrollbar-track {
+  background-color: rgba($color: #000000, $alpha: 0.2);
+}
+
+.admin-view-all-courses-wrapper::-webkit-scrollbar-thumb {
+  background-color: $accent-pink;
+  border-radius: 10px;
+}
+
+.admin-view-all-courses-wrapper {
+  position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.admin-view-all-courses-table-td-avatar {
+  margin-left: 20px;
+  max-height: 50px;
+  max-width: 50px;
+  border-radius: 50%;
+}
+
+.admin-view-all-courses-table-td {
+  text-align: center;
 }
 ////////////////////////////////  MEDIA QUERIES /////////////////////////////////////////////
 
