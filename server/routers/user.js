@@ -90,6 +90,15 @@ router.post('/users/activity', auth, async (req, res) => {
 })
 //temp**
 
+router.get('/users/allusers', auth, async (req, res) => {
+    try {
+         const user = await User.find({ }, [ "name", "lastname", "number" ,"role", "createdAt" ], { sort: { title : 1 }, limit: parseInt(req.query.limit), skip: parseInt(req.query.skip) })
+         res.status(200).send(user)
+} catch(e) {
+        res.status(400).send(e)
+    }
+})
+
 
 
 module.exports = router
