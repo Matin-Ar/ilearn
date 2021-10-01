@@ -2,9 +2,11 @@ const express = require('express')
 const User = require('../models/user')
 const auth = require('../middleware/auth')
 const moment = require('moment')
+const fs = require('fs')
 
 const router = new express.Router()
 
+// Singup new user
 router.post('/users/signup', async (req, res) => {
     try{
         if(!req.body.number) {
@@ -24,6 +26,7 @@ router.post('/users/signup', async (req, res) => {
     }
 })
 
+// Login user
 router.post('/users/login', async (req, res) => {
     try {
         if(!req.body.number || !req.body.code) {
@@ -38,6 +41,8 @@ router.post('/users/login', async (req, res) => {
     }
 })
 
+
+// Logout from current token
 router.post('/users/logout', auth, async (req, res) => {
     try {
         req.user.tokens = req.user.tokens.filter((token) => {
@@ -51,6 +56,7 @@ router.post('/users/logout', auth, async (req, res) => {
     }
 })
 
+// Logout from all tokens
 router.post('/users/logoutAll', auth, async (req, res) => {
     try {
         req.user.tokens = []
@@ -90,6 +96,8 @@ router.post('/users/activity', auth, async (req, res) => {
 })
 //temp**
 
+
+//Get all users
 router.get('/users/allusers', auth, async (req, res) => {
     try {
          const user = await User.find({ }, [ "name", "lastname", "number" ,"role", "createdAt" ], { sort: { title : 1 }, limit: parseInt(req.query.limit), skip: parseInt(req.query.skip) })
@@ -99,6 +107,22 @@ router.get('/users/allusers', auth, async (req, res) => {
     }
 })
 
+//Get user avatar
+router.get('/users/avatar/:id', async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id)
+        if (!user) {
+            throw new Error()
+        }
+        if (!user.avatar){
+            user.avatar = fs.readFileSync('./server/avatar/userAvatar.png')
+        }
+        res.set('Content-Type', 'image/png')
+        res.send(user.avatar)
+    }   catch (e) {
+        res.status(404).send()
+    }
+})
 
 
 module.exports = router
