@@ -23,7 +23,13 @@ router.post('/courses', auth, adminAuth, upload.fields([{ name: 'avatar', maxCou
         const avatarBuffer = req.files.avatar[0].buffer
         const demoBuffer = req.files.demo[0].buffer
         await ps.makeFolder(req.body.title)
+        await ps.makeFolder(`${req.body.title}/lesson`)
         const demoFile = await ps.uploadDemo(demoBuffer, req.files.demo[0].originalname, req.body.title)
+
+        if(!JSON.parse(demoFile).downloadLink){
+            throw new Error('parsaspace erorr!')
+        }
+
         const course = new Course({
             title: req.body.title,
             price: req.body.price,
@@ -48,7 +54,7 @@ router.post('/courses', auth, adminAuth, upload.fields([{ name: 'avatar', maxCou
     res.status(400).send({ error: error.message })
 })
 
-router.get('/courses', auth, async (req, res) => {
+router.get('/allcourses', auth, async (req, res) => {
     try {
          const course = await Course.find({ }, ["title", "instructor", "categories", "price" , "createdAt" ], { sort: { title : 1 }, limit: parseInt(req.query.limit), skip: parseInt(req.query.skip) })
          res.status(200).send(course)
