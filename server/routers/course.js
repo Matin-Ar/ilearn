@@ -54,12 +54,21 @@ router.post('/courses', auth, adminAuth, upload.fields([{ name: 'avatar', maxCou
     res.status(400).send({ error: error.message })
 })
 
-router.get('/allcourses', auth, async (req, res) => {
+router.get('/courses', async (req, res) => {
+    try {
+         const course = await Course.findById(req.body.courseId)
+         res.status(200).send(course)
+} catch(e) {
+        res.status(400).send()
+    }
+})
+
+router.get('/allcourses', async (req, res) => {
     try {
          const course = await Course.find({ }, ["title", "instructor", "categories", "price" , "createdAt" ], { sort: { title : 1 }, limit: parseInt(req.query.limit), skip: parseInt(req.query.skip) })
          res.status(200).send(course)
 } catch(e) {
-        res.status(400).send(e)
+        res.status(400).send()
     }
 })
 
