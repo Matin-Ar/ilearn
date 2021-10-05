@@ -70,7 +70,7 @@ router.get('/courses/:id', async (req, res) => {
 // get all courses
 router.get('/allcourses', async (req, res) => {
     try {
-         const course = await Course.find({ }, ["title", "instructor", "categories", "price" , "createdAt" ], { sort: { createdAt : 1 }, limit: parseInt(req.query.limit), skip: parseInt(req.query.skip) })
+         const course = await Course.find({ }, ["title", "instructor", "categories", "price" , "createdAt" ], { sort: { createdAt : -1 }, limit: parseInt(req.query.limit), skip: parseInt(req.query.skip) })
          res.status(200).send(course)
 } catch(e) {
         res.status(400).send()
