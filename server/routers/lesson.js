@@ -22,19 +22,22 @@ router.post('/lessons', auth, adminAuth, async (req, res) => {
 })
 
 // get 1 lesson by id
-router.get('/lessons', async (req, res) => {
+router.get('/lessons/:id', async (req, res) => {
     try {
-         const lesson = await Lesson.findById(req.body.lessonId)
+         const lesson = await Lesson.findById(req.params.id)
+         if(!lesson){
+            throw new Error('There is no lesson!')
+        }
          res.status(200).send(lesson)
 } catch(e) {
-        res.status(400).send()
+        res.status(400).send({ error: e.message })
     }
 })
 
 // get all lessons
-router.get('/alllessons', async (req, res) => {
+router.get('/alllessons/:id', async (req, res) => {
     try {
-         const lesson = await Lesson.find({ courseId: req.body.courseId }, ["title", "position"], { sort: { position : 1 }, limit: parseInt(req.query.limit), skip: parseInt(req.query.skip) })
+         const lesson = await Lesson.find({ courseId: req.params.id }, ["title", "position"], { sort: { position : 1 }, limit: parseInt(req.query.limit), skip: parseInt(req.query.skip) })
          res.status(200).send(lesson)
 } catch(e) {
         res.status(400).send()

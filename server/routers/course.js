@@ -17,7 +17,7 @@ const upload = multer({
         cb(undefined, true)
     }
 })
-
+// add course
 router.post('/courses', auth, adminAuth, upload.fields([{ name: 'avatar', maxCount: 1 }, { name: 'demo', maxCount: 1 }]), async (req, res) => {
     try {
         const avatarBuffer = req.files.avatar[0].buffer
@@ -54,18 +54,23 @@ router.post('/courses', auth, adminAuth, upload.fields([{ name: 'avatar', maxCou
     res.status(400).send({ error: error.message })
 })
 
-router.get('/courses', async (req, res) => {
+// get 1 course by id
+router.get('/courses/:id', async (req, res) => {
     try {
-         const course = await Course.findById(req.body.courseId)
+         const course = await Course.findById(req.params.id)
+         if(!course){
+             throw new Error('There is no course!')
+         }
          res.status(200).send(course)
 } catch(e) {
-        res.status(400).send()
+        res.status(400).send({ error: e.message })
     }
 })
 
+// get all courses
 router.get('/allcourses', async (req, res) => {
     try {
-         const course = await Course.find({ }, ["title", "instructor", "categories", "price" , "createdAt" ], { sort: { title : 1 }, limit: parseInt(req.query.limit), skip: parseInt(req.query.skip) })
+         const course = await Course.find({ }, ["title", "instructor", "categories", "price" , "createdAt" ], { sort: { createdAt : 1 }, limit: parseInt(req.query.limit), skip: parseInt(req.query.skip) })
          res.status(200).send(course)
 } catch(e) {
         res.status(400).send()

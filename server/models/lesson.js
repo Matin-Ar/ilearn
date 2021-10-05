@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const uniqueValidator = require('mongoose-unique-validator')
+const Course = require('../models/course')
 
 const lessonSchema = new mongoose.Schema({
     courseId: {
@@ -18,10 +19,23 @@ const lessonSchema = new mongoose.Schema({
     },
     position: {
         type: Number,
-        required: true
+        required: true,
+        unique: true
     }
 }, {
     timestamps: true
+})
+
+// check if course exist
+lessonSchema.pre('save', async function (next) {
+    const lesson = this
+    const course = await Course.findById(lesson.courseId)
+
+    if (!course) {
+        throw new Error('There is no course with this id!')
+    }
+    
+    next()
 })
 
 lessonSchema.plugin(uniqueValidator)
