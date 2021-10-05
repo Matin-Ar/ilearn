@@ -978,17 +978,51 @@ progress {
 }
 
 [hidden] {
+  transition: all 1s ease-in;
   display: none;
 }
 
 .admin-add-course-container,
-.admin-view-all-courses-container {
+.admin-view-all-courses-container,
+.admin-view-all-users-container {
   position: relative;
   margin-top: 30px;
   background-color: $admin-light-bg;
   border-radius: $main-border-radius;
   direction: rtl;
   font-family: "vazir";
+}
+
+.admin-view-all-users-filters {
+  min-height: 120px;
+  padding: 1em;
+  color: $white;
+}
+
+.admin-view-all-users-filters-wrapper {
+  display: flex;
+  justify-content: space-around;
+  margin-top: $sm;
+  margin-bottom: $sm;
+}
+
+.admin-view-all-users-filters-input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-view-all-users-filters-input {
+  margin-top: $sm;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border: 1px solid $border-gray;
+  width: 300px;
+  height: 40px;
+  border-radius: $main-border-radius;
+  padding-right: $sm;
+  padding-left: 10px;
+  color: $white;
 }
 
 .admin-view-all-courses-top-container {
@@ -998,6 +1032,7 @@ progress {
   font-family: "vazir";
   height: 100px;
 }
+
 .add-course-step-one-container {
   padding: 30px;
   color: $white;
@@ -1111,6 +1146,7 @@ progress {
   width: 100%;
   color: white;
   padding: 10px;
+  font-size: 0.7em;
 }
 
 .admin-view-all-courses-table-head {
@@ -1123,6 +1159,7 @@ progress {
   display: flex;
   align-items: center;
   margin: $sm;
+  max-width: 100px;
 }
 .admin-view-all-courses-table-tr:hover {
   background-color: darken(#343d55, 10%);
@@ -1174,6 +1211,57 @@ progress {
   border-radius: 10px;
 }
 
+.admin-view-all-courses-dots {
+  width: 35px;
+  fill: $accent-pink;
+}
+
+.admin-view-all-courses-dots-wrapper {
+  position: relative;
+}
+
+.admin-view-all-courses-dots-menu-wrapper {
+  height: 80px;
+  width: 100px;
+  background-color: $main-dark;
+  position: absolute;
+  left: 50%;
+  top: 0px;
+  display: none;
+}
+
+.admin-view-all-courses-dots-menu-wrapper-visible {
+  background-color: $main-dark;
+  position: absolute;
+  min-width: 150px;
+  left: 50%;
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-view-all-courses-dots-menu-group-icon {
+  width: 15px;
+  height: 15px;
+  margin-left: $sm;
+}
+
+.admin-view-all-courses-dots-menu-group-links {
+  text-decoration: none;
+  color: $white;
+}
+
+.admin-view-all-courses-dots-menu-group-container {
+  display: flex;
+  flex-direction: row;
+  padding: $sm;
+  margin: $sm;
+}
+
+.admin-view-all-courses-dots-menu-group-container:hover {
+  background-color: $green-btn;
+}
+
 .admin-view-all-courses-wrapper {
   position: relative;
   max-height: 80vh;
@@ -1181,19 +1269,31 @@ progress {
 }
 .admin-view-all-courses-table-td-avatar {
   margin-left: 20px;
-  max-height: 50px;
-  max-width: 50px;
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
   border-radius: 50%;
 }
 
 .admin-view-all-courses-table-td {
   text-align: center;
+  max-width: 100px;
+}
+
+.admin-view-all-users-role {
+  display: flex;
+}
+
+.admin-view-all-users-role-icon {
+  margin: 0 $sm;
 }
 ////////////////////////////////  MEDIA QUERIES /////////////////////////////////////////////
 
 @media (max-width: 950px) {
   .courses-dropdown-container {
     display: none;
+    align-items: center;
+    justify-content: center;
   }
 
   .main-menu-container {

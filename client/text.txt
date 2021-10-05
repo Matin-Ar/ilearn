@@ -72,3 +72,51 @@ DELETE: /api/users/me
 ------------------edits
 این شماره قبلا ثبت نشده است 
 حساب کاربری با این شماره ثبت نشده است ، لطفا ثبت نام نمایید
+
+
+
+1.
+Get: localhost:3000/api/courses
+body: {
+    "courseId": "6159ecc6bfcc965960170244"
+} 
+
+avali behet oon coursi ke mikhaio
+etealtesho mide
+faghat etelate khode course mide
+lesson ha toosh nist
+
+2.
+Get: localhost:3000/api/allcourses
+body: khali
+
+dovomi ham ke hamoon all courses ke estefade kardi
+
+
+3. Add lesson
+post: localhost:3000/api/lessons
+boddy : {
+    "courseId": "...",
+    "title": "...",
+    "lessonType": "...",
+    "position": "..."
+               }
+bara ezafe kardane lesson
+havaset bashe ke courseId hatman baiad id ye coursi bashe
+
+4. Get Lesson
+Get : localhost:3000/api/lessons
+body : {
+    "lessonId": "...."
+}
+
+
+5. Get All lessons
+Get : localhost:3000/api/alllessons
+body :{
+    "courseId": "..."
+}
+
+in akhari ham
+courseId o midi
+behet kolle lesson hasho mide

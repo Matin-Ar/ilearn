@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import ProgressBar from "@ramonak/react-progress-bar";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 //imported actions
 import { startAddAlert } from "../../../../Actions/NotificationActions";
@@ -13,6 +14,8 @@ import BadgeUploadImg from "../../../../Assets/Svg/badgeupload.svg";
 import AstBeach from "../../../../Assets/Svg/ast-beach.svg";
 
 function StepOne(props) {
+  let history = useHistory();
+
   //img switch states
   const [courseBadge, setCourseBadge] = useState(null);
   const [courseImage, setCourseImage] = useState(null);
@@ -86,7 +89,9 @@ function StepOne(props) {
           const { loaded, total } = progressEvent;
           let percent = Math.floor((loaded * 100) / total);
           console.log(`${loaded} kb of ${total}kb | ${percent}%`);
-          setUploadProgressPercent(percent);
+          if (percent < 95) {
+            setUploadProgressPercent(percent);
+          }
         },
       };
 
@@ -104,11 +109,18 @@ function StepOne(props) {
       formData.append("level", courseLevel);
       formData.append("language", courseLanguage);
 
-      axios
-        .post("/api/courses", formData, axiosConfig)
-        .then((res) => console.log(res));
-
-      props.dispatch(startAddAlert("success", "دوره در حال ایجاد می باشد"));
+      axios.post("/api/courses", formData, axiosConfig).then((res) => {
+        props.dispatch(startAddAlert("success", "دوره در حال ایجاد می باشد"));
+        if (res.status == 201) {
+          setUploadProgressPercent(100);
+          props.dispatch(startAddAlert("success", "دوره با موفقیت ایجاد شد"));
+          console.log(" timeout started pushing to view course ....");
+          setTimeout(() => {
+            history.push("/admin/ViewCourse");
+          }, 5000);
+          console.log("this is from step one of add course", res);
+        }
+      });
     } else {
       props.dispatch(
         startAddAlert("error", "لطفا تمامی قیلد ها را تکمیل نمایید")
@@ -313,7 +325,7 @@ function StepOne(props) {
                   className="add-course-next-step-button"
                   onClick={(e) => handleAddCourseRequest(e)}
                 >
-                  مرحله بعد
+                  افزودن دوره
                 </button>
               </div>
             </div>
